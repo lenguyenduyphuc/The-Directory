@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import Course from "./components/Course";
-import coursesHelper from "./components/course.helper";
+import courseService from "./services/courses";
 
 const App = () => {
-  const courses = coursesHelper;
+  const [courses, setCourses] = useState([]);
   
+  useEffect(() => {
+    courseService.getAll().then((courses) => {
+      setCourses(courses);
+    });
+  }, [])
+
   return (
     <Course courses={courses} />
   )
