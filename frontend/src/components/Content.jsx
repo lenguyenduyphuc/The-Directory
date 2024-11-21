@@ -19,7 +19,7 @@ const Content = ({ parts }) => {
       </div>
       <div style={showWhenVisible}>
         {parts.map((part) => (
-          <Part key={part.id} part={part.name} link = {part.link}/>
+          <Part key={part.id} part={part.name} link = {part.link} likes={part.likes}/>
         ))}
         <button onClick={toggleVisibility}>Ẩn vào nếu bạn muốn ngu đi</button>
       </div>
