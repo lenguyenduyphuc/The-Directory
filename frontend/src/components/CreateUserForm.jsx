@@ -6,17 +6,23 @@ const CreateUserForm = ({ createUser }) => {
   const [newName, setNewName] = useState('')
   const [newPassword, setNewPassword] = useState('')
 
-  const addUser = (event) => {
+  const addUser = async (event) => {
     event.preventDefault()
-    createUser({
-      username: newUsername,
-      name: newName,
-      password: newPassword,
-    })
+    try {
+      await createUser({
+        username: newUsername,
+        name: newName,
+        password: newPassword,
+      })
 
-    setNewUsername('')
-    setNewName('')
-    setNewPassword('')
+      // Reset form fields after successful creation
+      setNewUsername('')
+      setNewName('')
+      setNewPassword('')
+    } catch (error) {
+      console.error('User creation failed', error)
+      // Handle user creation error (show message, etc.)
+    }
   }
 
   return (

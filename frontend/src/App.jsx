@@ -36,12 +36,13 @@ const App = () => {
     }
   }
 
-  const handleCreateUser = (newUser) => {
-    loginService
-      .create(newUser)
-      .then((returnedUser) => {
-        setUser(returnedUser)
-      })
+  const handleCreateUser = async (newUser) => {
+    try {
+      const returnedUser = await loginService.create(newUser)
+      setUser(returnedUser)
+    } catch (error) {
+      console.log('Error creating user', error)
+    }
   }
 
 
