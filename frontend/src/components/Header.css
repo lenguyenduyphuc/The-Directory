@@ -1,0 +1,27 @@
+.header-container {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: var(--color-secondary);
+  border-radius: 8px;
+}
+
+.header-title {
+  font-family: var(--font-roboto);
+  color: var(--color-accent);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
+}

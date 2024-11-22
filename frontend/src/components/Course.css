@@ -1,0 +1,70 @@
+/* Root variables for consistent design */
+:root {
+  --color-primary: #1e1e1f;
+  --color-secondary: #2a2a2b;
+  --color-accent: rgb(76, 175, 80);
+  --color-text: rgb(255, 255, 255);
+  --color-bg: #121212;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+/* Container for all courses */
+.course-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Individual course card styling */
+.course-card {
+  background: var(--color-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Card hover effect */
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+}
+
+/* Header styling */
+.course-card h1 {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+  font-family: var(--font-roboto);
+  margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-container {
+    padding: 0 10px;
+  }
+
+  .course-card {
+    padding: 15px;
+  }
+
+  .course-card h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-container {
+    gap: 15px;
+  }
+
+  .course-card {
+    padding: 10px;
+  }
+
+  .course-card h1 {
+    font-size: 1.25rem;
+  }
+}

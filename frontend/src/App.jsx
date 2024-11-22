@@ -4,7 +4,7 @@ import courseService from "./services/courses";
 import loginService from "./services/login";
 import LoginForm from "./components/LoginForm";
 import CreateUser from "./components/CreateUserForm";
-
+import './App.css'
 
 const App = () => {
   const [courses, setCourses] = useState([]);
@@ -76,10 +76,8 @@ const App = () => {
 
 
   return (
-    <div>
-      <h2>The Directory</h2>
+    <div className="app-background">
       {user === null ? (
-        // Show login and create user forms when no user is logged in
         <div>
           <div className="auth-forms">
             {loginForm()}
@@ -87,7 +85,6 @@ const App = () => {
           </div>
         </div>
       ) : (
-        // Show user content when logged in
         <div>
           <div className="user-header">
             <p>{user.name} log in</p>

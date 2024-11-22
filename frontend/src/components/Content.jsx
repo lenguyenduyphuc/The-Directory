@@ -1,29 +1,36 @@
-import React from 'react'
-import Part from './Part'
-import { useState } from 'react'
+import React from 'react';
+import Part from './Part';
+import { useState } from 'react';
+import './Content.css';
 
 const Content = ({ parts }) => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
-  const hideWhenVisible = { display: visible ? 'none' : '' }
-  const showWhenVisible = { display: visible ? '' : 'none' }
-  
   const toggleVisibility = () => {
-    setVisible(!visible)
-  }
+    setVisible(!visible);
+  };
 
   return (
-    <div>
-      <div style={hideWhenVisible}>
-        <button onClick={toggleVisibility}>Bấm vào nếu muốn não bạn to ra</button>
+    <div className="content-container">
+      <div className={!visible ? 'hidden-state' : 'visible-state'}>
+        <button onClick={toggleVisibility} className="toggle-button">
+          {!visible ? 'Bấm vào nếu muốn thông minh' : 'Ẩn vào nếu bạn không muốn thông minh'}
+        </button>
       </div>
-      <div style={showWhenVisible}>
-        {parts.map((part) => (
-          <Part key={part.id} part={part.name} link = {part.link} likes={part.likes}/>
-        ))}
-        <button onClick={toggleVisibility}>Ẩn vào nếu bạn muốn ngu đi</button>
-      </div>
+      {visible && (
+        <div className="parts-list">
+          {parts.map((part) => (
+            <Part
+              key={part.id}
+              part={part.name}
+              link={part.link}
+              likes={part.likes}
+            />
+          ))}
+        </div>
+      )}
     </div>
-  )
-}
-export default Content
+  );
+};
+
+export default Content;

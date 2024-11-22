@@ -1,0 +1,106 @@
+/* Root variables for consistent design */
+:root {
+  --color-primary: #1e1e1f;
+  --color-secondary: #2a2a2b;
+  --color-accent: rgb(76, 175, 80);
+  --color-text: rgb(255, 255, 255);
+  --color-bg: #121212;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+/* Main container styling */
+.content-container {
+  padding: 20px;
+  background: var(--color-secondary);
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
+  color: var(--color-text);
+  font-family: var(--font-roboto);
+}
+
+/* Button styling */
+.toggle-button {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-button:hover {
+  background: #5dc46b;
+  transform: translateY(-1px);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+}
+
+/* Hidden and visible states */
+.hidden-state,
+.visible-state {
+  margin: 10px 0;
+}
+
+.hidden-state {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.visible-state {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+/* Parts list styling */
+.parts-list {
+  margin-top: 20px;
+  background: var(--color-primary);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* Animation effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .content-container {
+    padding: 15px;
+  }
+
+  .toggle-button {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  .parts-list {
+    font-size: 0.9rem;
+  }
+}

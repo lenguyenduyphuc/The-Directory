@@ -1,0 +1,135 @@
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.login-card {
+  background: var(--color-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-title {
+  color: var(--color-text);
+  font-family: var(--font-roboto);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.form-group input {
+  background: #ffffff; 
+  border: 1px solid #cccccc; 
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: #000000; 
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4caf50; 
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.4); 
+}
+
+.form-group input::placeholder {
+  color: #777777; 
+}
+
+
+.login-button {
+  background: var(--color-accent);
+  color: rgb(37, 36, 36);
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.login-button:hover {
+  background: rgba(76, 175, 80, 0.9);
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-card {
+  animation: slideIn 0.3s ease forwards;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.25rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+.form-group input.error {
+  border-color: #ff4444;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}
+
+.login-button.loading {
+  background: var(--color-accent);
+  opacity: 0.8;
+  cursor: wait;
+}
