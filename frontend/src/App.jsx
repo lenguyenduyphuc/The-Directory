@@ -38,7 +38,7 @@ const App = () => {
 
   const handleCreateUser = (newUser) => {
     loginService
-      .createUser(newUser)
+      .create(newUser)
       .then((returnedUser) => {
         setUser(returnedUser)
       })
