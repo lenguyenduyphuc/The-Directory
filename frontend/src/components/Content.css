@@ -1,4 +1,3 @@
-/* Root variables for consistent design */
 :root {
   --color-primary: #1e1e1f;
   --color-secondary: #2a2a2b;
@@ -8,7 +7,6 @@
   --font-roboto: "Roboto", sans-serif;
 }
 
-/* Main container styling */
 .content-container {
   padding: 20px;
   background: var(--color-secondary);
@@ -20,7 +18,6 @@
   font-family: var(--font-roboto);
 }
 
-/* Button styling */
 .toggle-button {
   background: var(--color-accent);
   color: white;
@@ -42,7 +39,6 @@
   transform: translateY(0);
 }
 
-/* Hidden and visible states */
 .hidden-state,
 .visible-state {
   margin: 10px 0;
@@ -56,7 +52,6 @@
   animation: fadeOut 0.3s ease-in-out;
 }
 
-/* Parts list styling */
 .parts-list {
   margin-top: 20px;
   background: var(--color-primary);
@@ -66,7 +61,6 @@
   font-size: 1rem;
 }
 
-/* Animation effects */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -89,7 +83,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
   .content-container {
     padding: 15px;

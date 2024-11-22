@@ -1,4 +1,3 @@
-/* Root variables for consistent design */
 :root {
   --color-primary: #1e1e1f;
   --color-secondary: #2a2a2b;
@@ -8,7 +7,6 @@
   --font-roboto: "Roboto", sans-serif;
 }
 
-/* Container for all courses */
 .course-container {
   display: flex;
   flex-direction: column;
@@ -18,7 +16,6 @@
   padding: 0 20px;
 }
 
-/* Individual course card styling */
 .course-card {
   background: var(--color-secondary);
   border-radius: 12px;
@@ -26,13 +23,11 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Card hover effect */
 .course-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
 }
 
-/* Header styling */
 .course-card h1 {
   color: var(--color-accent);
   font-size: 1.8rem;
@@ -40,7 +35,6 @@
   margin-bottom: 15px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .course-container {
     padding: 0 10px;
