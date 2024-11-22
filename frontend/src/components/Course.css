@@ -33,6 +33,7 @@
   font-size: 1.8rem;
   font-family: var(--font-roboto);
   margin-bottom: 15px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

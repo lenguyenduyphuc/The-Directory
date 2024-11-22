@@ -3,13 +3,13 @@ import Part from './Part';
 import { useState } from 'react';
 import './Content.css';
 
-const Content = ({ parts }) => {
+const Content = ({ parts, courseId, updatedCourse }) => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisibility = () => {
     setVisible(!visible);
   };
-
+  
   return (
     <div className="content-container">
       <div className={!visible ? 'hidden-state' : 'visible-state'}>
@@ -20,13 +20,15 @@ const Content = ({ parts }) => {
       {visible && (
         <div className="parts-list">
           {parts.map((part) => (
-            <Part
-              key={part.id}
-              part={part.name}
-              link={part.link}
-              likes={part.likes}
-            />
-          ))}
+            <div key={part._id}>
+                <Part
+                  key={part._id}
+                  part={part}
+                  courseId={courseId}
+                  updatedCourse={updatedCourse}
+                />
+            </div>
+          ))} 
         </div>
       )}
     </div>

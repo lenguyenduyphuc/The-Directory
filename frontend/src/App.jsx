@@ -45,7 +45,6 @@ const App = () => {
     }
   }
 
-
   const handleLogout = async (event) => {
     event.preventDefault()
     window.localStorage.removeItem('loggedUser')
@@ -60,9 +59,36 @@ const App = () => {
     )
   }
 
+  const updatedLike = (courseId, partId, delta) => {
+    let updatedPart;
+    const courseToUpdate = courses.find((c) => c.id === courseId);
+    const partToUpdate = courseToUpdate.parts.find((p) => p._id === partId);
+    if (partToUpdate.likes + delta < 0) {
+      updatedPart = { ...partToUpdate, likes: 0};
+    } else {
+      updatedPart = { ...partToUpdate, likes: partToUpdate.likes + delta};
+    }
+  
+    courseService
+      .update(courseId, updatedPart)
+      .then((returnedPart) => {
+        setCourses(courses.map((course) => course.id !== courseId ?
+                    course :
+                    {
+                      ...course,
+                      parts: course.parts.map((part) =>
+                      part._id !== partId ? part : { ...part, likes: returnedPart.likes }),
+                    }));
+        })
+      .catch((error) => console.error('Error updating likes:', error));
+  };
+  
+  
+  
+
   const logoutForm = () => (
     <form onSubmit={handleLogout}>
-      <button type="submit">Logout</button>
+      <button type="submit">Log Out</button>
     </form>
   )
 
@@ -88,10 +114,20 @@ const App = () => {
       ) : (
         <div>
           <div className="user-header">
-            <p>{user.name} log in</p>
+            <p>{user.name} Log In</p>
             {logoutForm()}
           </div>
-          <Course courses={courses}/>
+          {courses
+          .map((course) => (
+            <Course
+            key={course.id}
+            course={{
+              ...course,
+              parts: [...course.parts].sort((a, b) => b.likes - a.likes),
+            }}
+            updatedCourse={updatedLike}
+          />
+          ))}
         </div>
       )}
     </div>

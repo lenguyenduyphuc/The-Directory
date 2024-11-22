@@ -19,7 +19,7 @@ const LoginForm = ({ createLogin }) => {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="login-title">Chào mừng đến với the Directory</h2>
+        <h2 className="login-title">Chào mừng đến với The Directory</h2>
         <form onSubmit={handleLogin} className="login-form">
           <div className="form-group">
             <label htmlFor="username">Username</label>

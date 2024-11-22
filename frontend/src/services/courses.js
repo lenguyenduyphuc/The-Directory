@@ -16,6 +16,13 @@ const getAll =  () => {
   return request.then(response => response.data)
 }
 
+const update = async (courseId, updatedPart) => {
+  const response = await axios.put(
+    `${baseUrl}/${courseId}/${updatedPart._id}`, 
+    updatedPart, 
+    config
+  );
+  return response.data;
+};
 
-
-export default { getAll, setToken };
+export default { getAll, setToken, update };

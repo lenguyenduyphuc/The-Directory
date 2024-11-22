@@ -15,20 +15,18 @@ const CreateUserForm = ({ createUser }) => {
         password: newPassword,
       })
 
-      // Reset form fields after successful creation
       setNewUsername('')
       setNewName('')
       setNewPassword('')
     } catch (error) {
       console.error('User creation failed', error)
-      // Handle user creation error (show message, etc.)
     }
   }
 
   return (
     <div className="signup-container">
       <div className="signup-card">
-        <h2 className="signup-title">Sign up for the Directory</h2>
+        <h2 className="signup-title">Đăng kí cho The Directory</h2>
         <form onSubmit={addUser} className="signup-form">
           <div className="form-group">
             <label htmlFor="signup-username">Username</label>
