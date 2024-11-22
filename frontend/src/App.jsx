@@ -37,12 +37,8 @@ const App = () => {
   }
 
   const handleCreateUser = async (newUser) => {
-    try {
       const returnedUser = await loginService.create(newUser)
       setUser(returnedUser)
-    } catch (error) {
-      console.log('Error creating user', error)
-    }
   }
 
   const handleLogout = async (event) => {

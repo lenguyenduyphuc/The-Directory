@@ -18,10 +18,6 @@ coursesRouter.post('/', async (request, response) => {
   try {
     const coursesData = request.body
 
-    if (!Array.isArray(coursesData)) {
-      return response.status(400).json({ error: 'Request body must be an array' })
-    }
-
     const savedCourses = await Promise.all(
       coursesData.map(async (courseData) => {
         const course = new Course({
@@ -84,8 +80,8 @@ coursesRouter.put('/:courseId/:partId', async (request, response) => {
       return response.status(404).json({ error: 'Part not found' });
     }
 
-    part.likes = likes; // Update likes
-    await course.save(); // Save the updated course
+    part.likes = likes; 
+    await course.save(); 
 
     response.status(200).json(part);
   } catch (error) {
