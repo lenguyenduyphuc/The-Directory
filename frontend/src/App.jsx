@@ -38,7 +38,7 @@ const App = () => {
 
   const handleCreateUser = (newUser) => {
     loginService
-      .create(newUser)
+      .createUser(newUser)
       .then((returnedUser) => {
         setUser(returnedUser)
       })
@@ -78,25 +78,26 @@ const App = () => {
   return (
     <div>
       <h2>The Directory</h2>
-      {user === null ?
-        loginForm() :
+      {user === null ? (
+        // Show login and create user forms when no user is logged in
         <div>
-          <p>{user.name} log in </p>
-          {logoutForm()}
+          <div className="auth-forms">
+            {loginForm()}
+            {createNewUser()}
+          </div>
+        </div>
+      ) : (
+        // Show user content when logged in
+        <div>
+          <div className="user-header">
+            <p>{user.name} log in</p>
+            {logoutForm()}
+          </div>
           <Course courses={courses}/>
         </div>
-      }
-      {
-        user === null ?
-        createNewUser():
-        <div>
-          <p>{user.name} log in </p>
-          {logoutForm()}
-          <Course courses={courses}/>
-        </div>
-      }
+      )}
     </div>
-  )
+  );
 }
 
 export default App
