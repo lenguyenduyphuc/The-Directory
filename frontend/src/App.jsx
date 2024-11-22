@@ -3,7 +3,7 @@ import Course from "./components/Course";
 import courseService from "./services/courses";
 import loginService from "./services/login";
 import LoginForm from "./components/LoginForm";
-
+import CreateUser from "./components/CreateUserForm";
 
 
 const App = () => {
@@ -36,6 +36,15 @@ const App = () => {
     }
   }
 
+  const handleCreateUser = (newUser) => {
+    loginService
+      .create(newUser)
+      .then((returnedUser) => {
+        setUser(returnedUser)
+      })
+  }
+
+
   const handleLogout = async (event) => {
     event.preventDefault()
     window.localStorage.removeItem('loggedUser')
@@ -56,6 +65,14 @@ const App = () => {
     </form>
   )
 
+  const createNewUser = () => {
+    return (
+      <div>
+        <CreateUser createUser = {handleCreateUser}/>
+      </div>
+    )
+  }
+
 
 
   return (
@@ -63,6 +80,15 @@ const App = () => {
       <h2>The Directory</h2>
       {user === null ?
         loginForm() :
+        <div>
+          <p>{user.name} log in </p>
+          {logoutForm()}
+          <Course courses={courses}/>
+        </div>
+      }
+      {
+        user === null ?
+        createNewUser():
         <div>
           <p>{user.name} log in </p>
           {logoutForm()}
