@@ -4,6 +4,7 @@ import courseService from "./services/courses";
 import loginService from "./services/login";
 import LoginForm from "./components/LoginForm";
 import CreateUser from "./components/CreateUserForm";
+import Footer from "./components/Footer";
 import './App.css'
 
 const App = () => {
@@ -126,6 +127,7 @@ const App = () => {
           ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 }

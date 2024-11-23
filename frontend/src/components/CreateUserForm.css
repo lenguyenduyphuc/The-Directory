@@ -41,8 +41,6 @@
 }
 
 .form-group input {
-  background: #ffffff; 
-  border: 1px solid #cccccc; 
   padding: 0.75rem 1rem;
   color: #000000;
   font-size: 1rem;
@@ -63,7 +61,6 @@
 .signup-button {
   background: var(--color-accent);
   color: rgb(37, 36, 36);
-  border: none;
   border-radius: 6px;
   padding: 0.75rem;
   font-size: 1rem;
@@ -111,7 +108,6 @@
   background: var(--color-accent);
 }
 
-/* Add animation */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -127,7 +123,7 @@
   animation: slideUp 0.3s ease forwards;
 }
 
-/* Add responsive design */
+
 @media (max-width: 480px) {
   .signup-card {
     padding: 1.5rem;
