@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Course from "./components/Course";
 import courseService from "./services/courses";
 import loginService from "./services/login";
 import LoginForm from "./components/LoginForm";
-import CreateUser from "./components/CreateUserForm";
+import SignupForm from "./components/CreateUserForm";
 import Footer from "./components/Footer";
-import './App.css'
 
 const App = () => {
   const [courses, setCourses] = useState([]);
@@ -48,14 +48,6 @@ const App = () => {
     setUser(null)
   }
 
-  const loginForm = () => {
-    return (
-      <div>
-        <LoginForm createLogin={handleLogin} />
-      </div>
-    )
-  }
-
   const updatedLike = (courseId, partId, delta) => {
     let updatedPart;
     const courseToUpdate = courses.find((c) => c.id === courseId);
@@ -81,31 +73,23 @@ const App = () => {
   };
   
   
-  
-
   const logoutForm = () => (
     <form onSubmit={handleLogout}>
       <button type="submit">Log Out</button>
     </form>
   )
 
-  const createNewUser = () => {
-    return (
-      <div>
-        <CreateUser createUser = {handleCreateUser}/>
-      </div>
-    )
-  }
-
-
-
   return (
     <div className="app-background">
       {user === null ? (
         <div>
           <div className="auth-forms">
-            {loginForm()}
-            {createNewUser()}
+          <Router>
+            <Routes>
+              <Route path="/" element={<LoginForm createLogin={handleLogin} />} />
+              <Route path="/signup" element={<SignupForm createUser={handleCreateUser}/>} />
+            </Routes>
+          </Router>
           </div>
         </div>
       ) : (
@@ -127,7 +111,7 @@ const App = () => {
           ))}
         </div>
       )}
-      <Footer />
+      <Footer/>
     </div>
   );
 }

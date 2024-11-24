@@ -1,72 +1,67 @@
-import { useState } from 'react'
-import './CreateUserForm.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './CreateUserForm.css';
 
-const CreateUserForm = ({ createUser }) => {
-  const [newUsername, setNewUsername] = useState('')
-  const [newName, setNewName] = useState('')
-  const [newPassword, setNewPassword] = useState('')
+const SignupForm = ({ createUser }) => {
+  const [newUsername, setNewUsername] = useState('');
+  const [newName, setNewName] = useState('');
+  const [newPassword, setNewPassword] = useState('');
 
-  const addUser = (event) => {
-    event.preventDefault()
-      createUser({
-        username: newUsername,
-        name: newName,
-        password: newPassword,
-      })
-
-      setNewUsername('')
-      setNewName('')
-      setNewPassword('')
-  }
+  const handleLogin = (event) => {
+    event.preventDefault();
+    createUser({
+      username: newUsername,
+      name: newPassword,
+      password: newPassword
+    })
+  };
 
   return (
-    <div className="signup-container">
-      <div className="signup-card">
-        <h2 className="signup-title">Đăng kí cho The Directory</h2>
-        <form onSubmit={addUser} className="signup-form">
-          <div className="form-group">
-            <label htmlFor="signup-username">Username</label>
+    <div className="form-container">
+      <div className="form-content">
+        <h1>Create account</h1>
+        <p className="subtitle">to start learning</p>
+
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label>Username</label>
             <input
-              id="signup-username"
               type="text"
               value={newUsername}
-              name="Username"
-              onChange={(event) => setNewUsername(event.target.value)}
-              placeholder="Choose a username"
-              required
+              onChange={(e) => setNewUsername(e.target.value)}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="signup-name">Name</label>
+
+          <div className="input-group">
+            <label>Name</label>
             <input
-              id="signup-name"
               type="text"
               value={newName}
-              name="Name"
-              onChange={(event) => setNewName(event.target.value)}
-              placeholder="Enter your full name"
-              required
+              onChange={(e) => setNewName(e.target.value)}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="signup-password">Password</label>
+
+          <div className="input-group">
+            <label>Password</label>
             <input
-              id="signup-password"
               type="password"
               value={newPassword}
-              name="Password"
-              onChange={(event) => setNewPassword(event.target.value)}
-              placeholder="Create a password"
-              required
+              onChange={(e) => setNewPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="signup-button">
-            Create Account
+
+          <button type="submit" className="submit-button">
+            Create account
           </button>
         </form>
+
+        <p className="switch-form">
+          Already have an account? <Link to="/">Login</Link>
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreateUserForm
+export default SignupForm;
+

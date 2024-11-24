@@ -1,173 +1,83 @@
-.signup-container {
-  width: 100%;
-  max-width: 400px;
-  padding: 0 1rem;
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
 }
 
-.signup-card {
-  background: var(--color-secondary);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.signup-title {
-  color: var(--color-text);
-  font-family: var(--font-roboto);
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 500;
-}
-
-.signup-form {
+.form-container {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-group label {
-  color: var(--color-text);
-  font-size: 0.9rem;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-.form-group input {
-  padding: 0.75rem 1rem;
-  color: #000000;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #4caf50; 
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.4); 
-}
-
-.form-group input::placeholder {
-  color: #777777; 
-}
-
-
-.signup-button {
-  background: var(--color-accent);
-  color: rgb(37, 36, 36);
-  border-radius: 6px;
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 1rem;
-}
-
-.signup-button:hover {
-  background: rgba(76, 175, 80, 0.9);
-  transform: translateY(-1px);
-}
-
-.signup-button:active {
-  transform: translateY(0);
-}
-
-.password-strength {
-  height: 4px;
-  border-radius: 2px;
-  margin-top: 0.5rem;
-  background: var(--color-primary);
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #282828;
+  padding: 20px;
+  font-family: BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
 
-.password-strength-bar {
-  height: 100%;
-  width: 0;
-  transition: width 0.3s ease, background 0.3s ease;
-}
-
-.password-strength-bar.weak {
-  width: 33.33%;
-  background: #ff4444;
-}
-
-.password-strength-bar.medium {
-  width: 66.66%;
-  background: #ffbb33;
-}
-
-.password-strength-bar.strong {
+.form-content {
   width: 100%;
-  background: var(--color-accent);
+  max-width: 400px;
+  text-align: center;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
 }
 
-.signup-card {
-  animation: slideUp 0.3s ease forwards;
+.subtitle {
+  color: #ffffff;
+  margin: 8px 0 32px;
+  font-size: 20px;
 }
 
-
-@media (max-width: 480px) {
-  .signup-card {
-    padding: 1.5rem;
-  }
-
-  .signup-title {
-    font-size: 1.25rem;
-  }
-
-  .form-group input {
-    padding: 0.6rem 0.8rem;
-  }
+.input-group {
+  text-align: left;
+  margin-bottom: 24px;
 }
 
-.form-group input:valid {
-  border-color: rgba(76, 175, 80, 0.4);
+label {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
-.form-group input:invalid:not(:placeholder-shown) {
-  border-color: rgba(255, 68, 68, 0.4);
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
 }
 
-.helper-text {
-  font-size: 0.8rem;
-  color: var(--color-text);
-  opacity: 0.7;
-  margin-top: 0.25rem;
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 32px 0;
 }
 
-.terms-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+.switch-form {
+  color: #ffffff;
+  font-size: 14px;
 }
 
-.terms-checkbox input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-  accent-color: var(--color-accent);
+.switch-form a {
+  color: #007bff;
+  text-decoration: none;
 }
 
-.terms-checkbox label {
-  font-size: 0.9rem;
-  color: var(--color-text);
-  opacity: 0.9;
-}

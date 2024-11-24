@@ -1,9 +1,11 @@
-import { useState } from 'react'
-import './LoginForm.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './LoginForm.css';
 
 const LoginForm = ({ createLogin }) => {
   const [newUsername, setNewUsername] = useState('')
   const [newPassword, setNewPassword] = useState('')
+
 
   const handleLogin = (event) => {
     event.preventDefault()
@@ -15,43 +17,49 @@ const LoginForm = ({ createLogin }) => {
     setNewUsername('')
     setNewPassword('')
   }
-
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2 className="login-title">Chào mừng đến với The Directory</h2>
-        <form onSubmit={handleLogin} className="login-form">
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              id="username"
-              type="text"
-              value={newUsername}
-              name="Username"
-              onChange={(event) => setNewUsername(event.target.value)}
-              placeholder="Enter your username"
-              required
-            />
+    <div className="form-container">
+      <div className="form-content">
+        <h1>Log in</h1>
+        <p className="subtitle">to start learning</p>
+
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label>Username</label>
+            <div className="input-wrapper">
+              <input
+                type="text"
+                value={newUsername}
+                onChange={(e) => setNewUsername(e.target.value)}
+                required
+              />
+            </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+
+          <div className="input-group">
+            <label>Password</label>
             <input
-              id="password"
               type="password"
               value={newPassword}
-              name="Password"
-              onChange={(event) => setNewPassword(event.target.value)}
-              placeholder="Enter your password"
-              required
+              onChange={(e) => setNewPassword(e.target.value)}
             />
+            <a href="/forgot-password" className="forgot-link">
+              Forgot password?
+            </a>
           </div>
-          <button type="submit" className="login-button">
-            Login
+
+          <button type="submit" className="submit-button">
+            Log in <span className="arrow">→</span>
           </button>
         </form>
+
+        <p className="switch-form">
+          Don't have an account? <Link to="/signup">Sign up now!</Link>
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
+

@@ -1,16 +1,18 @@
+import React from "react";
+
 const Footer = () => {
   const footerStyle = {
-    color: "ocean blue",
-    fontStyle: 'italic',
-    fontSize: 16
-  }
+    color: "white", 
+    fontStyle: "italic",
+    fontSize: 20,
+    backgroundColor: '#282828'
+  };
 
   return (
     <div style={footerStyle}>
-      <br />
-      <em>Made by Le Nguyen Duy Phuc 2024</em>
+      <em>Made by Nguyen Duy Phuc Le 2024</em>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
