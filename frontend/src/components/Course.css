@@ -1,65 +1,36 @@
-:root {
-  --color-primary: #1e1e1f;
-  --color-secondary: #2a2a2b;
-  --color-accent: rgb(76, 175, 80);
-  --color-text: rgb(255, 255, 255);
-  --color-bg: #121212;
-  --font-roboto: "Roboto", sans-serif;
-}
-
 .course-container {
+  --bg-color: #2c2c2c;
+  --card-bg: #333333;
+  --text-color: #ffffff;
+  --accent-color: #007bff;
+  --hover-color: #0056b3;
+
+  background-color: var(--bg-color);
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .course-card {
-  background: var(--color-secondary);
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .course-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
-}
-
-.course-card h1 {
-  color: var(--color-accent);
-  font-size: 1.8rem;
-  font-family: var(--font-roboto);
-  margin-bottom: 15px;
-  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
   .course-container {
-    padding: 0 10px;
-  }
-
-  .course-card {
-    padding: 15px;
-  }
-
-  .course-card h1 {
-    font-size: 1.5rem;
+    padding: 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .course-container {
-    gap: 15px;
-  }
-
-  .course-card {
-    padding: 10px;
-  }
-
-  .course-card h1 {
-    font-size: 1.25rem;
-  }
-}

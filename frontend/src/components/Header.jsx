@@ -4,9 +4,10 @@ import './Header.css';
 const Header = ({ course }) => {
   return (
     <div className="header-container">
-      <h1 className="header-title">{course}</h1>
+      <h2 className="header-title">{course}</h2>
     </div>
   );
 };
 
 export default Header;
+

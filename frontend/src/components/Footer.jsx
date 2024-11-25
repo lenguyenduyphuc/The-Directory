@@ -1,17 +1,16 @@
 import React from "react";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
-  const footerStyle = {
-    color: "white", 
-    fontStyle: "italic",
-    fontSize: 20,
-    backgroundColor: '#282828'
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <div style={footerStyle}>
-      <em>Made by Nguyen Duy Phuc Le 2024</em>
-    </div>
+    <footer className={styles.footer}>
+      <div className={styles.footerContent}>
+        Made with <span className={styles.highlight}>♥</span> by{" "}
+        <span className={styles.highlight}>Nguyen Duy Phuc Le</span> © {currentYear}
+      </div>
+    </footer>
   );
 };
 

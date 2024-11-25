@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Course from "./components/Course";
+import { LogOut, User } from 'lucide-react';
 import courseService from "./services/courses";
 import loginService from "./services/login";
 import LoginForm from "./components/LoginForm";
@@ -82,36 +83,43 @@ const App = () => {
   return (
     <div className="app-background">
       {user === null ? (
-        <div>
+        <div className="auth-container">
           <div className="auth-forms">
-          <Router>
-            <Routes>
-              <Route path="/" element={<LoginForm createLogin={handleLogin} />} />
-              <Route path="/signup" element={<SignupForm createUser={handleCreateUser}/>} />
-            </Routes>
-          </Router>
+            <Router>
+              <Routes>
+                <Route path="/" element={<LoginForm createLogin={handleLogin} />} />
+                <Route path="/signup" element={<SignupForm createUser={handleCreateUser} />} />
+              </Routes>
+            </Router>
           </div>
         </div>
       ) : (
-        <div>
-          <div className="user-header">
-            <p>{user.name} Log In</p>
-            {logoutForm()}
+        <div className="main-container">
+          <header className="app-header">
+            <div className="user-info">
+              <User className="user-icon" size={20} />
+              <span className="user-name">{user?.name} Log In</span>
+            </div>
+            <button onClick={handleLogout} className="logout-button">
+              <span className="logout-text">Log Out </span>
+              <LogOut className="logout-icon" size={18} />
+            </button>
+          </header>
+          <div className="courses-wrapper">
+            {courses.map((course) => (
+              <Course
+                key={course.id}
+                course={{
+                  ...course,
+                  parts: [...course.parts].sort((a, b) => b.likes - a.likes),
+                }}
+                updatedCourse={updatedLike}
+              />
+            ))}
           </div>
-          {courses
-          .map((course) => (
-            <Course
-            key={course.id}
-            course={{
-              ...course,
-              parts: [...course.parts].sort((a, b) => b.likes - a.likes),
-            }}
-            updatedCourse={updatedLike}
-          />
-          ))}
         </div>
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

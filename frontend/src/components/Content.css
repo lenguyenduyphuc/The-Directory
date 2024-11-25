@@ -1,99 +1,62 @@
-:root {
-  --color-primary: #1e1e1f;
-  --color-secondary: #2a2a2b;
-  --color-accent: rgb(76, 175, 80);
-  --color-text: rgb(255, 255, 255);
-  --color-bg: #121212;
-  --font-roboto: "Roboto", sans-serif;
-}
-
 .content-container {
-  padding: 20px;
-  background: var(--color-secondary);
-  border-radius: 12px;
-  max-width: 500px;
-  margin: 20px auto;
-  text-align: center;
-  color: var(--color-text);
-  font-family: var(--font-roboto);
+  padding: 2rem;
 }
 
 .toggle-button {
-  background: var(--color-accent);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-color);
   border: none;
-  border-radius: 6px;
-  padding: 12px 20px;
+  padding: 1rem 2rem;
   font-size: 1rem;
-  font-weight: 500;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.toggle-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.toggle-button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .toggle-button:hover {
-  background: #5dc46b;
-  transform: translateY(-1px);
+  background-color: var(--hover-color);
 }
 
 .toggle-button:active {
-  transform: translateY(0);
-}
-
-.hidden-state,
-.visible-state {
-  margin: 10px 0;
-}
-
-.hidden-state {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.visible-state {
-  animation: fadeOut 0.3s ease-in-out;
+  transform: scale(0.98);
 }
 
 .parts-list {
-  margin-top: 20px;
-  background: var(--color-primary);
-  padding: 15px;
-  border-radius: 8px;
-  text-align: left;
-  font-size: 1rem;
+  display: grid;
+  gap: 1.5rem;
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .content-container {
-    padding: 15px;
-  }
-
-  .toggle-button {
-    font-size: 0.9rem;
-    padding: 10px 15px;
-  }
-
-  .parts-list {
-    font-size: 0.9rem;
+    padding: 1rem;
   }
 }
+

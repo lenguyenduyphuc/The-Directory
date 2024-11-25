@@ -1,58 +1,58 @@
 .part-card {
-  background: var(--color-secondary);
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
   padding: 1.5rem;
-  margin: 1rem 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.part-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.part-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), #00c6ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
-.part-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
+.part-card:hover::before {
+  transform: scaleX(1);
 }
 
 .part-title {
-  color: var(--color-text);
-  font-family: var(--font-roboto);
-  font-size: 1.25rem;
-  margin: 0;
-  font-weight: 500;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .part-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .part-link {
-  display: inline-flex;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-accent);
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  background: rgba(76, 175, 80, 0.1);
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .part-link:hover {
-  background: rgba(76, 175, 80, 0.2);
+  color: var(--hover-color);
 }
 
 .link-icon {
-  font-size: 1rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .part-link:hover .link-icon {
@@ -62,52 +62,47 @@
 .part-likes {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: var(--color-primary);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  gap: 1rem;
 }
 
 .likes-count {
-  color: var(--color-accent);
-  font-weight: 600;
-  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: bold;
 }
 
 .likes-label {
-  color: var(--color-text);
-  opacity: 0.7;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-@media (max-width: 768px) {
-  .part-card {
-    padding: 1rem;
-  }
-
-  .part-details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .part-link, .part-likes {
-    width: 100%;
-    justify-content: center;
-  }
+.button-group {
+  display: flex;
+  gap: 0.5rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.like-button, .dislike-button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0.5rem;
 }
 
-.part-card {
-  animation: fadeIn 0.3s ease forwards;
+.like-button:hover, .dislike-button:hover {
+  transform: scale(1.2);
 }
+
+.button-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.like-button:hover .button-icon {
+  transform: rotate(-10deg);
+}
+
+.dislike-button:hover .button-icon {
+  transform: rotate(10deg);
+}
+
