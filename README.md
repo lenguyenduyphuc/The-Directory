@@ -1,7 +1,7 @@
 Here's a refined version of your README.md for The Directory:
 
 # The Directory
-[![Demo Video](https://img.shields.io/badge/Demo-YouTube-red)](https://www.youtube.com/watch?v=M5pvWUNmnoo)
+[![Demo Link]](https://the-directory.onrender.com)
 
 ## 📚 Overview
 The Directory is an educational resource-sharing platform built with the MERN stack. It connects students and teachers, enabling them to share, organize, and evaluate educational resources through a community-driven voting system.
