@@ -43,9 +43,9 @@ const LoginForm = ({ createLogin }) => {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
             />
-            <a href="/forgot-password" className="forgot-link">
+            {/* <a href="/forgot-password" className="forgot-link">
               Forgot password?
-            </a>
+            </a> */}
           </div>
 
           <button type="submit" className="submit-button">
