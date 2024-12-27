@@ -31,7 +31,7 @@ const App = () => {
     try {
       const user = await loginService.login(credentials);
       window.localStorage.setItem("loggedBlogappUser", JSON.stringify(user));
-      loginService.setToken(user.token);
+      courseService.setToken(user.token);
       setUser(user);
     } catch (exception) {
       console.log("Wrong credentials");
@@ -39,8 +39,10 @@ const App = () => {
   };
 
   const handleCreateUser = async (newUser) => {
-    const returnedUser = await loginService.create(newUser);
-    setUser(returnedUser);
+    const user = await loginService.create(newUser);
+    window.localStorage.setItem("loggedBlogappUser", JSON.stringify(user));
+    courseService.setToken(user.token);
+    setUser(user);
   };
 
   const handleLogout = async (event) => {
