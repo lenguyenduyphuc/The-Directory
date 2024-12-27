@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './LoginForm.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./LoginForm.css";
 
 const LoginForm = ({ createLogin }) => {
-  const [newUsername, setNewUsername] = useState('')
-  const [newPassword, setNewPassword] = useState('')
-
+  const [newUsername, setNewUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const handleLogin = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     createLogin({
       username: newUsername,
       password: newPassword,
-    })
-    
-    setNewUsername('')
-    setNewPassword('')
-  }
+    });
+
+    setNewUsername("");
+    setNewPassword("");
+  };
   return (
     <div className="form-container">
       <div className="form-content">
@@ -43,9 +42,6 @@ const LoginForm = ({ createLogin }) => {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
             />
-            {/* <a href="/forgot-password" className="forgot-link">
-              Forgot password?
-            </a> */}
           </div>
 
           <button type="submit" className="submit-button">
@@ -62,4 +58,3 @@ const LoginForm = ({ createLogin }) => {
 };
 
 export default LoginForm;
-

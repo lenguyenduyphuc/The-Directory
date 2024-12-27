@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './CreateUserForm.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./CreateUserForm.css";
 
 const SignupForm = ({ createUser }) => {
-  const [newUsername, setNewUsername] = useState('');
-  const [newName, setNewName] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  const [newUsername, setNewUsername] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
     createUser({
       username: newUsername,
-      name: newPassword,
-      password: newPassword
-    })
+      name: newName,
+      password: newPassword,
+    });
   };
 
   return (
@@ -64,4 +64,3 @@ const SignupForm = ({ createUser }) => {
 };
 
 export default SignupForm;
-
